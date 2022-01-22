@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Movie review board</string>
+
+    <!--Activity Registration-->
+    <string name="edit_text_email">Email</string>
+    <string name="edit_text_password">Password</string>
+    <string name="edit_text_registration">Register</string>
+    <string name="edit_text_login">Login</string>
+    <string name="text_view_forgot_your_password">Forgot your password?</string>
+    <string name="text_view_already_registered">Already registered. Login Me!</string>
+</resources>
