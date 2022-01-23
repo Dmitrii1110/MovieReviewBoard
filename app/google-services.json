@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "659693228919",
+    "project_id": "movie-review-board-8cfda",
+    "storage_bucket": "movie-review-board-8cfda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659693228919:android:8a61c9e242c2b5a7ed4772",
+        "android_client_info": {
+          "package_name": "com.proect.moviereviewboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659693228919-pqis378b2njmbvupr0jkedpd22pfauou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4cZ1FlU-5irWz2290m7RTkd5OSn0Ocpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659693228919-pqis378b2njmbvupr0jkedpd22pfauou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
