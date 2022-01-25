@@ -1,0 +1,5 @@
+package com.proect.moviereviewboard
+
+data class ItemsViewModel(val image: Int, val text: String){
+
+}
