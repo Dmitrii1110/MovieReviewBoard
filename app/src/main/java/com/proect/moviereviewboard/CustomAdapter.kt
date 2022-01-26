@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class CustomAdapter(private val mList: List<Result>?) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
@@ -24,10 +25,8 @@ class CustomAdapter(private val mList: List<Result>?) : RecyclerView.Adapter<Cus
 
         val ItemsViewModel = mList?.get(position)
 
-        // sets the image to the imageview from our itemHolder class
-        //holder.imageView.setImageResource(ItemsViewModel.image)
+        Picasso.get().load("https://image.tmdb.org/t/p/w500" + mList?.get(position)?.poster_path).into(holder.imageView)
 
-        holder.textView.text = ItemsViewModel?.title
 
     }
 
@@ -39,6 +38,5 @@ class CustomAdapter(private val mList: List<Result>?) : RecyclerView.Adapter<Cus
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
-        val textView: TextView = itemView.findViewById(R.id.textView)
     }
 }

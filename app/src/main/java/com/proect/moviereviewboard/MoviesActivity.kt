@@ -3,6 +3,7 @@ package com.proect.moviereviewboard
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -21,7 +22,7 @@ class MoviesActivity : AppCompatActivity() {
         val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
 
         // this creates a vertical layout Manager
-        recyclerview.layoutManager = LinearLayoutManager(this)
+        recyclerview.layoutManager = GridLayoutManager(this,2)
 
         // ArrayList of class ItemsViewModel
         val data = ArrayList<ItemsViewModel>()
