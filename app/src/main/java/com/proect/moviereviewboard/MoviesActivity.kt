@@ -2,6 +2,7 @@ package com.proect.moviereviewboard
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,12 +37,12 @@ class MoviesActivity : AppCompatActivity() {
         val apiInterface = APIInterface.ApiInterface.create().getMovies("2439cc49a36685a90f1febdc8680c95a")
 
         //apiInterface.enqueue( Callback<List<Movie>>())
-        apiInterface.enqueue( object : Callback<Movies> {
+        apiInterface.enqueue( object : Callback<Movies>, CustomAdapter.ItemClickListener {
             override fun onResponse(call: Call<Movies>?, response: Response<Movies>?) {
                 Log.d("MyLog", "On Response Success ${call.toString()} ${response?.body()?.results}")
 
                 // This will pass the ArrayList to our Adapter
-                val adapter = CustomAdapter(response?.body()?.results)
+                val adapter = CustomAdapter(response?.body()?.results, this)
 
                 // Setting the Adapter with the recyclerview
                 recyclerview.adapter = adapter
@@ -52,6 +53,10 @@ class MoviesActivity : AppCompatActivity() {
             override fun onFailure(call: Call<Movies>?, t: Throwable?) {
 
                 Log.d("MyLog", "onFailure : ${t?.message}")
+            }
+
+            override fun onItemClick(position: Int) {
+                Toast.makeText(this@MoviesActivity, "click $position", Toast.LENGTH_SHORT).show()
             }
         })
 

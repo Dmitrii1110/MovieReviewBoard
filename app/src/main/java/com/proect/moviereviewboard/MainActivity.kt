@@ -30,18 +30,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        database = Firebase.database.reference   //инициализация базы данных
+        val intentToAnotherScreen = Intent(this, MoviesActivity::class.java)
+        startActivity(intentToAnotherScreen)
 
-        // Choose authentication providers
-        val providers = arrayListOf(
-            AuthUI.IdpConfig.EmailBuilder().build()) // создали список регистраицй, которые мы используем
-
-// Create and launch sign-in intent
-        val signInIntent = AuthUI.getInstance()
-            .createSignInIntentBuilder()
-            .setAvailableProviders(providers)
-            .build()  //создали интент для экрана firebase auth
-        signInLauncher.launch(signInIntent)  //запустили экран firebase auth
+//        database = Firebase.database.reference   //инициализация базы данных
+//
+//        // Choose authentication providers
+//        val providers = arrayListOf(
+//            AuthUI.IdpConfig.EmailBuilder().build()) // создали список регистраицй, которые мы используем
+//
+//// Create and launch sign-in intent
+//        val signInIntent = AuthUI.getInstance()
+//            .createSignInIntentBuilder()
+//            .setAvailableProviders(providers)
+//            .build()  //создали интент для экрана firebase auth
+//        signInLauncher.launch(signInIntent)  //запустили экран firebase auth
     }
 
 
