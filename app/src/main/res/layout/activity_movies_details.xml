@@ -22,15 +22,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/movies_details_title">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/movies_details_image_banner"
             android:layout_width="525dp"
             android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movies_details_header_container_card"/>
+            app:layout_constraintTop_toBottomOf="@+id/movies_details_header_container_card" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -48,7 +50,7 @@
             android:padding="4dp">
 
             <TextView
-                android:id="@+id/movies_details_title"
+                android:id="@+id/movies_details_body_overview_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -65,8 +67,8 @@
                 android:layout_marginTop="8dp"
                 android:text="Release Date : "
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/movies_details_title"
-                app:layout_constraintTop_toBottomOf="@+id/movies_details_title" />
+                app:layout_constraintStart_toStartOf="@+id/movies_details_body_overview_label"
+                app:layout_constraintTop_toBottomOf="@+id/movies_details_body_overview_label" />
 
             <TextView
                 android:id="@+id/movies_details_date"
