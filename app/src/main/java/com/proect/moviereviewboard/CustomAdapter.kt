@@ -44,7 +44,7 @@ val mItemClickListener:ItemClickListener) : RecyclerView.Adapter<CustomAdapter.V
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
         init {
             ItemView.setOnClickListener{
-                mItemClickListener.onItemClick(adapterPosition)
+                mList?.get(position)?.id?.let {it -> mItemClickListener.onItemClick(it)} //передаём id фильма нв второй экран
             }
         }
     }

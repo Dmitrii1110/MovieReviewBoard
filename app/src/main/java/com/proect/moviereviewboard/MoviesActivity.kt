@@ -1,11 +1,10 @@
 package com.proect.moviereviewboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,7 +33,7 @@ class MoviesActivity : AppCompatActivity() {
             data.add(ItemsViewModel(R.drawable.common_full_open_on_phone, "Item " + i))
         }
 
-        val apiInterface = APIInterface.ApiInterface.create().getMovies("2439cc49a36685a90f1febdc8680c95a")
+        val apiInterface = ApiInterface.create().getMovies("2439cc49a36685a90f1febdc8680c95a")
 
         //apiInterface.enqueue( Callback<List<Movie>>())
         apiInterface.enqueue( object : Callback<Movies>, CustomAdapter.ItemClickListener {
@@ -55,8 +54,10 @@ class MoviesActivity : AppCompatActivity() {
                 Log.d("MyLog", "onFailure : ${t?.message}")
             }
 
-            override fun onItemClick(position: Int) {
-                Toast.makeText(this@MoviesActivity, "click $position", Toast.LENGTH_SHORT).show()
+            override fun onItemClick(id: Int) {
+                val intent = Intent(this@MoviesActivity,MoviesDetailsActivity::class.java)
+                intent.putExtra("id",id)
+                startActivity(intent)
             }
         })
 

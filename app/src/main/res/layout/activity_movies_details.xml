@@ -48,15 +48,13 @@
             android:padding="4dp">
 
             <TextView
-                android:id="@+id/movies_details_body_overview_label"
+                android:id="@+id/movies_details_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBotom="8dp"
+                android:layout_marginTop="8dp"
                 android:text="Overview"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constrainStart_toStartOf="parent"
-                app:layout_constrainTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,25 +63,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBotom="4dp"
                 android:text="Release Date : "
                 android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constrainStart_toStartOf="parent"
-                app:layout_constrainTop_toBottomOf="@+id/movies_details_body_overview_label"
-                app:layout_constraintStart_toStartOf="@+id/movies_details_body_overview_label"
-                app:layout_constraintTop_toBottomOf="@+id/movies_details_body_overview_label" />
+                app:layout_constraintStart_toStartOf="@+id/movies_details_title"
+                app:layout_constraintTop_toBottomOf="@+id/movies_details_title" />
 
             <TextView
                 android:id="@+id/movies_details_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginBotom="4dp"
                 android:text="23 june 2001"
                 android:textSize="18sp"
-                app:layout_constrainStart_toEndOf="@+id/movies_details_date_label"
-                app:layout_constrainTop_toBottomOf="@+id/movies_details_body_overview_label"
                 app:layout_constraintBottom_toBottomOf="@+id/movies_details_date_label"
                 app:layout_constraintStart_toEndOf="@+id/movies_details_date_label"
                 app:layout_constraintTop_toTopOf="@+id/movies_details_date_label" />
@@ -93,12 +84,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBotom="4dp"
                 android:text="Score : "
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constrainStart_toStartOf="parent"
-                app:layout_constrainTop_toBottomOf="@+id/movies_details_date_label"
                 app:layout_constraintStart_toStartOf="@+id/movies_details_date_label"
                 app:layout_constraintTop_toBottomOf="@+id/movies_details_date_label" />
 
@@ -107,11 +95,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginBotom="4dp"
                 android:text="7.9"
                 android:textSize="18sp"
-                app:layout_constrainStart_toEndOf="@+id/movies_details_score_label"
-                app:layout_constrainTop_toBottomOf="@+id/movies_details_date"
                 app:layout_constraintBottom_toBottomOf="@+id/movies_details_score_label"
                 app:layout_constraintStart_toEndOf="@+id/movies_details_score_label"
                 app:layout_constraintTop_toTopOf="@+id/movies_details_score_label" />
@@ -122,12 +107,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="OverviewOverviewOverviewOverviewOverviewOverviewOverviewOverviewOverviewOverviewOverview"
-                android:textSize="14sp"
-                app:layout_constrainStart_toStartOf="parent"
-                app:layout_constrainTop_toBottomOf="@+id/movies_details_score_label"
                 app:layout_constraintStart_toStartOf="@+id/movies_details_score_label"
                 app:layout_constraintTop_toBottomOf="@+id/movies_details_score_label" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
