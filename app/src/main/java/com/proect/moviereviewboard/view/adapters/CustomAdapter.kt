@@ -1,14 +1,17 @@
-package com.proect.moviereviewboard
+package com.proect.moviereviewboard.view.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.proect.moviereviewboard.R
+import com.proect.moviereviewboard.data.Result
 import com.squareup.picasso.Picasso
 
 class CustomAdapter(private val mList: List<Result>?,
-val mItemClickListener:ItemClickListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+                    val mItemClickListener: ItemClickListener
+) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     interface ItemClickListener{
         fun onItemClick(position:Int)

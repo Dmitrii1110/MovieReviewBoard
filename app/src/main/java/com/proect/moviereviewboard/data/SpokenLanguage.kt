@@ -1,4 +1,4 @@
-package com.proect.moviereviewboard
+package com.proect.moviereviewboard.data
 
 data class SpokenLanguage(
     val iso_639_1: String,

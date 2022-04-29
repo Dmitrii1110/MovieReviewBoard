@@ -1,10 +1,9 @@
-package com.proect.moviereviewboard
+package com.proect.moviereviewboard.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
@@ -13,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.proect.moviereviewboard.R
+import com.proect.moviereviewboard.data.User
 
 
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.proect.moviereviewboard
+package com.proect.moviereviewboard.data
 
 data class ProductionCountry(
     val iso_3166_1: String,

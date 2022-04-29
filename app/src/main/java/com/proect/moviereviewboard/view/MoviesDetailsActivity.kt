@@ -1,10 +1,13 @@
-package com.proect.moviereviewboard
+package com.proect.moviereviewboard.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import com.proect.moviereviewboard.R
+import com.proect.moviereviewboard.data.MoviesDetails
+import com.proect.moviereviewboard.model.apis.ApiInterface
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
