@@ -1,7 +1,7 @@
 package com.proect.moviereviewboard.model.apis
 
+import com.proect.moviereviewboard.data.MovieDetails
 import com.proect.moviereviewboard.data.Movies
-import com.proect.moviereviewboard.data.MoviesDetails
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,10 +13,13 @@ interface ApiInterface {
 
 
         @GET("3/movie/popular")
-        fun getMovies(@Query ("api_key") sort : String ) : Call<Movies>
+        fun getMovies( @Query("api_key") sort : String,
+                       @Query("language") language: String,
+                       @Query("page") page : Int,
+    ) : Call<Movies>
 
         @GET("3/movie/{movie_id}")
-        fun getMoviesDetails(@Path("movie_id") movieId : Int, @Query ("api_key") apiKey : String ) : Call<MoviesDetails>
+        fun getMoviesDetails(@Path("movie_id") movieId : Int, @Query ("api_key") apiKey : String ) : Call<MovieDetails>
 
         companion object {
 

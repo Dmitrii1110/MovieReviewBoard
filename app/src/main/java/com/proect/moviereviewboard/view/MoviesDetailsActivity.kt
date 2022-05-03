@@ -2,59 +2,58 @@ package com.proect.moviereviewboard.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.proect.moviereviewboard.R
-import com.proect.moviereviewboard.data.MoviesDetails
-import com.proect.moviereviewboard.model.apis.ApiInterface
+import com.proect.moviereviewboard.data.MovieDetails
+import com.proect.moviereviewboard.viewmodel.MoviesViewModel
 import com.squareup.picasso.Picasso
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MoviesDetailsActivity : AppCompatActivity() {
 
-    private lateinit var title: TextView
-    private lateinit var title2: TextView
-    private lateinit var releaseDate: TextView
-    private lateinit var score: TextView
-    private lateinit var overview: TextView
-    private lateinit var banner: ImageView
+    private val mViewModel : MoviesViewModel = MoviesViewModel()
+
+    private lateinit var mTitle: TextView
+    private lateinit var mReleaseDate: TextView
+    private lateinit var mScore: TextView
+    private lateinit var mOverview: TextView
+    private lateinit var mBanner: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies_details)
+
         val id = intent.getIntExtra("id", 0) //вытаскиваем id фильма c первого экрана
-        Log.d("MyLog", "id $id")
+        initViews()
+        initObservers()
+        mViewModel.getMovieDetails(id)
 
+    }
 
-        title = findViewById(R.id.movies_details_title)
-        title2 = findViewById(R.id.movies_details_body_overview_label)
-        releaseDate = findViewById(R.id.movies_details_date)
-        score = findViewById(R.id.movies_details_score)
-        overview = findViewById(R.id.movies_details_body_overview)
-        banner = findViewById(R.id.movies_details_image_banner)
-
-        //Создаём  API Interface
-
-        val apiInterface = id?.let { ApiInterface.create().getMoviesDetails(it, "2439cc49a36685a90f1febdc8680c95a")}
-        apiInterface?.enqueue(object : Callback<MoviesDetails> {
-            override fun onResponse(call: Call<MoviesDetails>?, response: Response<MoviesDetails>?) {
-                title.text = response?.body()?.title
-                title2.text = response?.body()?.title
-                releaseDate.text = response?.body()?.release_date.toString()
-                score.text = response?.body()?.vote_average.toString()
-                overview.text = response?.body()?.overview
-
-                Picasso.get().load("https://image.tmdb.org/t/p/w500" + response?.body()?.backdrop_path).into(banner)
+    private fun initObservers() {
+        mViewModel.apply {
+            movieDetails.observe(this@MoviesDetailsActivity){
+                setMovieInformation(it)
             }
+        }
+    }
 
-            override fun onFailure(call: Call<MoviesDetails>?, t: Throwable?) {
-                Log.d("testLogs", "onFailure : ${t?.message}")
-            }
+    private fun setMovieInformation(movieDetails: MovieDetails?) {
+        mTitle.text = movieDetails?.title
+        mReleaseDate.text = movieDetails?.release_date.toString()
+        mScore.text = movieDetails?.vote_average.toString()
+        mOverview.text = movieDetails?.overview
 
-        })
+        Picasso.get().load("https://image.tmdb.org/t/p/w500" + movieDetails?.backdrop_path).into(mBanner)
+
+    }
+
+    private fun initViews() {
+        mTitle.text = findViewById(R.id.movies_details_title)
+        mReleaseDate.text = findViewById(R.id.movies_details_date)
+        mScore = findViewById(R.id.movies_details_score)
+        mOverview = findViewById(R.id.movies_details_body_overview)
+        mBanner = findViewById(R.id.movies_details_image_banner)
     }
 
 }

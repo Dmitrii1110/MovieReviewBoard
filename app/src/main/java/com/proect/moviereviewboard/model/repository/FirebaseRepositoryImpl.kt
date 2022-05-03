@@ -9,7 +9,7 @@ class FirebaseRepositoryImpl : FirebaseRepository {
 
     private var database: DatabaseReference = Firebase.database.reference // создал объект для записи в БД
 
-    override fun updateUserData(firebaseRepository: User, uid: String) {
+    override fun updateUserData(firebaseUser: User, uid: String) {
         database.child("users").child(uid).setValue(firebaseUser) //сохраняем нашего пользователя в DataBase Realtime
     }
 }

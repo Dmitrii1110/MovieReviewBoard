@@ -1,6 +1,6 @@
 package com.proect.moviereviewboard.data
 
-data class MoviesDetails(
+data class MovieDetails(
     val adult: Boolean,
     val backdrop_path: String,
     val belongs_to_collection: Any,

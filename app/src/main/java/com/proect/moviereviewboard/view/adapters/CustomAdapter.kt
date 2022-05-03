@@ -14,7 +14,7 @@ class CustomAdapter(private val mList: List<Result>?,
 ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     interface ItemClickListener{
-        fun onItemClick(position:Int)
+        fun onItemClick(position: Int)
     }
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,12 +28,7 @@ class CustomAdapter(private val mList: List<Result>?,
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        val ItemsViewModel = mList?.get(position)
-
         Picasso.get().load("https://image.tmdb.org/t/p/w500" + mList?.get(position)?.poster_path).into(holder.imageView)
-
-
     }
 
     // return the number of the items in the list
@@ -46,7 +41,7 @@ class CustomAdapter(private val mList: List<Result>?,
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
         init {
             ItemView.setOnClickListener{
-                mList?.get(position)?.id?.let {it -> mItemClickListener.onItemClick(it)} //передаём id фильма нв второй экран
+                mList?.get(position)?.id?.let { it -> mItemClickListener.onItemClick(it) } //передаём id фильма нв второй экран
             }
         }
     }
